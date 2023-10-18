@@ -1,0 +1,51 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define MAX 10000
+
+
+vector<int> v[MAX];
+int mp[MAX][MAX],n,m;
+
+//邻接矩阵
+void MyPrint1(){
+	for(int i=1;i<=n;i++){
+		for(int j=1;j<=n;j++){
+			cout<<mp[i][j]<<" ";
+		}
+		cout<<"\n";
+	}
+	return ;
+}
+
+//邻接表
+void MyPrint2(){
+	for(int i=1;i<=n;i++){
+		sort(v[i].begin(),v[i].end());
+	}
+	for(int i=1;i<=n;i++){
+		cout<<v[i].size();
+		for(auto x:v[i]){
+			cout<<" "<<x;
+		}
+		cout<<"\n";
+	}
+	return ;
+	
+	
+}
+void Create(){
+	cin>>n>>m;
+	for(int i=1;i<=m;i++){
+		int u,vv;
+		cin>>u>>vv;
+		mp[u][vv]=1,mp[vv][u]=1;
+		v[u].push_back(vv),v[vv].push_back(u);
+	}
+	MyPrint1();
+	MyPrint2();
+}
+
+int main(int argc, char** argv) {
+	Create();
+	return 0;
+}
