@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class home {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();      //输入一个标识符
+        //调用方法checkId(str)检查标识符str是否合法
+        if(checkId(str)){
+            System.out.println(str+"合法");
+        }
+        else{
+            System.out.println(str+"不合法");
+        }
+        sc.close();
+    }
+        public static boolean checkId(String str) {
+            //定义正则表达式，描述标识符的组成规则
+            String regex="[a-zA-Z]\\w+";
+            //判断字符串str是否与正则表达式匹配
+            if(str.matches(regex)){
+                return true;
+            }
+            return false;
+        }
+}
